@@ -1,82 +1,96 @@
 # David's System Monitor
 
-## Description
+A lightweight real-time system resource monitor for Windows and Linux.  
+Starting from v2.0, it runs as a sleek always-on-top desktop overlay instead of the terminal.
 
-David's System Monitor is a lightweight terminal-based tool that displays real-time system resource usage. It provides a clear and readable overview of CPU, memory (RAM), disk usage, and optional GPU statistics.
+---
 
-The interface uses color-coded bars to help you quickly understand system load at a glance.
-<img width="823" height="288" alt="preview" src="https://github.com/user-attachments/assets/5e6c6083-4032-4450-ac2e-4645e2c999e1" />
+## Versions
+
+### v2.0 — Desktop Overlay *(current)*
+A frameless, transparent overlay that sits in the corner of your screen and stays on top of all windows. Draggable and color-coded.
+
+### v1.0 — Terminal Monitor *(legacy)*
+The original console-based version with color-coded ASCII bars. Still useful for **headless servers or SSH sessions** where a display isn't available.  
+→ Available under [Releases](../../releases/tag/v1.0)
+
 ---
 
 ## Features
 
-* Real-time system monitoring
-* CPU usage tracking
-* Memory (RAM) usage tracking
-* Disk usage tracking
-* Optional GPU monitoring (if supported)
-* Color-coded output:
-
-  * **Green** → Normal usage
-  * **Yellow** → Moderate usage
-  * **Red** → High usage
-* Smooth terminal updates
-* Works without a GPU
-* Cross-platform support (Windows & Linux)
-* Easy to stop with `Ctrl + C`
+- Real-time monitoring of CPU, RAM, and Disk usage
+- Optional GPU monitoring (usage + temperature)
+- Color-coded bars:
+  - 🟢 Green → Normal (0–50%)
+  - 🟡 Yellow → Moderate (51–80%)
+  - 🔴 Red → High (81–100%)
+- Always-on-top frameless window
+- Draggable — place it anywhere on screen
+- 85% transparency so it doesn't block your work
+- Press `Escape` to close
+- Cross-platform: Windows & Linux
+- Works without a GPU
 
 ---
 
 ## Requirements
 
-* Python 3.10 or newer
+Python 3.10 or newer.
 
-* Required library:
+**Required:**
+```
+pip install psutil
+```
 
-  ```bash
-  pip install psutil
-  ```
+**Optional** (GPU monitoring):
+```
+pip install gpustat
+```
 
-* Optional (for GPU monitoring):
+**Tkinter** is required for the overlay (v2.0) and comes pre-installed with Python.  
+On Linux, if it's missing:
+```
+# Ubuntu/Debian
+sudo apt install python3-tk
 
-  ```bash
-  pip install gpustat
-  ```
+# Arch
+sudo pacman -S tk
+```
 
 ---
 
 ## Usage
 
-1. Open a terminal
-2. Navigate to the project folder:
+### v2.0 — Desktop Overlay
+```
+python monitor_gui.py
+```
+The overlay will appear in the top-right corner of your screen.  
+Click and drag it to reposition. Press `Escape` to close.
 
-   ```bash
-   cd path/to/davids_system_monitor
-   ```
-3. Run the program:
-
-   ```bash
-   python system_monitor.py
-   ```
-
-Press `Ctrl + C` to stop the program.
+### v1.0 — Terminal *(headless/SSH)*
+```
+python monitor_cli.py
+```
+Press `Ctrl + C` to stop.
 
 ---
 
-## Optional Enhancements (Future Ideas)
+## Roadmap
 
-* Monitor GPU usage and temperature
-* Display per-core CPU usage
-* Track network usage (upload/download speed)
-* Log system data to a file
-* Show top resource-consuming processes
+- [ ] Per-core CPU usage
+- [ ] Network usage (upload/download speed)
+- [ ] Log system data to a file
+- [ ] Top resource-consuming processes
+- [ ] Configurable refresh rate and position
 
 ---
 
 ## Notes
 
-* Works best in terminals that support ANSI colors (PowerShell, Linux terminal, etc.)
-* GPU monitoring is optional and only available if supported hardware and libraries are installed
+- The terminal version (v1.0) works best in terminals that support ANSI colors (PowerShell, Linux terminal, etc.)
+- GPU monitoring is optional and only activates if supported hardware and `gpustat` are installed
+- Transparency in the overlay requires a compositor on Linux (most modern desktop environments include one)
 
 ---
 
