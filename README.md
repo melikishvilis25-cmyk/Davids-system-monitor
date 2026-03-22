@@ -2,11 +2,13 @@ Davids System Monitor
 
 =====================
 
+
 Description:
 
 ------------
 
 I made Davids System Monitor. It is a program that runs in the terminal. It shows you what your computer is doing. You can see how much of your computers brain, memory and disk space is being used. The program is easy to read. It uses colors to show you what is going on. It works on Windows computers. It is safe to use. You do not need a graphics card to use it.
+<img width="480" height="185" alt="Screenshot 2026-03-22 160312" src="https://github.com/user-attachments/assets/f5ac7127-6163-453d-8bb2-ec8ead320152" />
 
 Features:
 
