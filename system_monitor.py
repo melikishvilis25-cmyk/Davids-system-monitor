@@ -1,7 +1,10 @@
 import os
 import time
 import psutil
+from pathlib import Path
 
+root_path = Path().resolve().anchor or "C:\\"
+disk_percent = psutil.disk_usage(root_path).percent
 
 try:
     import gpustat
