@@ -1,4 +1,6 @@
 # David's System Monitor
+# important notice this whole project was vibe-coded instead of being written by me 
+### I'm actually planning to re-write it myself 
 A lightweight real-time system resource monitor for Windows and Linux.  
 Starting from v2.0, it runs as a sleek always-on-top desktop overlay instead of the terminal.
 
